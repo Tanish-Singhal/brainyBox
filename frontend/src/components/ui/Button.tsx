@@ -6,6 +6,7 @@ interface ButtonProps {
   size: "sm" | "md" | "lg";
   startIcon?: ReactElement;
   endIcon?: ReactElement;
+  onClick?: () => void;
 }
 
 const variantStyles = {
@@ -27,6 +28,7 @@ const defaultStyles =
 export const Button = (props: ButtonProps) => {
   return (
     <button
+      onClick={props.onClick}
       className={`${variantStyles[props.variant]} ${
         sizeStyles[props.size]
       } ${defaultStyles}`}

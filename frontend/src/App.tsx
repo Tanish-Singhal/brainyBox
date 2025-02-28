@@ -3,8 +3,12 @@ import { Button } from "./components/ui/Button";
 import { Card } from "./components/ui/Card";
 import { PlusIcon } from "./assets/icons/PlusIcon";
 import { ShareIcon } from "./assets/icons/ShareIcon";
+import { useState } from "react";
+import { AddContentModal } from "./components/ui/AddContentModal";
 
 function App() {
+  const [addContentModalOpen, setAddContentModalOpen] = useState(false);
+
   return (
     <div className="bg-background h-screen py-1 pr-6">
       <div className="flex justify-end items-center gap-4 py-6">
@@ -19,6 +23,9 @@ function App() {
           size="md"
           text="Add Content"
           startIcon={<PlusIcon size="md" color="black" />}
+          onClick={() => {
+            setAddContentModalOpen(true);
+          }}
         />
       </div>
 
@@ -35,6 +42,14 @@ function App() {
           title="Random"
         />
       </div>
+
+      <AddContentModal
+        title="Add Content"
+        open={addContentModalOpen}
+        onClose={() => {
+          setAddContentModalOpen(false);
+        }}
+      />
     </div>
   );
 }
