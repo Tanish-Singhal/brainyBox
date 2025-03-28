@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
 import dotenv from "dotenv";
-import { loginSchema, signupSchema } from "../schema/authSchema";
+import { signinSchema, signupSchema } from "../schema/authSchema";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import { User } from "../model/userModel";
@@ -65,10 +65,10 @@ router.post("/signup", async (req: Request, res: Response) => {
   }
 });
 
-router.post("/login", async (req: Request, res: Response) => {
+router.post("/signin", async (req: Request, res: Response) => {
   try {
     const body = req.body;
-    const result = loginSchema.safeParse(body);
+    const result = signinSchema.safeParse(body);
 
     if (!result.success) {
       res.status(400).json({

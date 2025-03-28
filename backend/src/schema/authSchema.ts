@@ -6,9 +6,9 @@ const signupSchema = zod.object({
   password: zod.string().min(8).max(100),
 });
 
-const loginSchema = zod.object({
+const signinSchema = zod.object({
   email: zod.string().email().min(6).max(30),
   password: zod.string().min(8).max(100),
 });
 
-export { signupSchema, loginSchema };
+export { signupSchema, signinSchema };
