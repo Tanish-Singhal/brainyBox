@@ -1,13 +1,19 @@
 import express, { Request, Response } from "express";
 import dotenv from "dotenv";
-import { signinSchema, signupSchema } from "../schema/authSchema";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import { User } from "../model/userModel";
+import zod from "zod";
 
 dotenv.config();
 
 const router = express.Router();
+
+const signupSchema = zod.object({
+  username: zod.string().min(3).max(20),
+  email: zod.string().email().min(6).max(30),
+  password: zod.string().min(8).max(100),
+});
 
 router.post("/signup", async (req: Request, res: Response) => {
   try {
@@ -63,6 +69,11 @@ router.post("/signup", async (req: Request, res: Response) => {
       error: "Internal Server Error",
     });
   }
+});
+
+const signinSchema = zod.object({
+  email: zod.string().email().min(6).max(30),
+  password: zod.string().min(8).max(100),
 });
 
 router.post("/signin", async (req: Request, res: Response) => {

@@ -1,9 +1,16 @@
 import express, { Request, Response } from 'express';
 import { authMiddleware } from '../middlewares/authMiddleware';
-import { contentSchema, updatedContentSchema } from '../schema/contentSchema';
 import { Content } from '../model/contentModel';
+import zod from 'zod';
 
 const router = express.Router();
+
+const contentSchema = zod.object({
+  title: zod.string().min(3).max(100),
+  link: zod.string().url(),
+  tags: zod.array(zod.string().min(1).max(20)).optional(),
+  description: zod.string().max(500).optional(),
+});
 
 // @ts-ignore
 router.post('/', authMiddleware, async (req: Request, res: Response) => {
@@ -94,6 +101,13 @@ router.delete('/:id', authMiddleware, async (req: Request, res: Response) => {
       error: 'Internal Server Error',
     });
   }
+});
+
+const updatedContentSchema = zod.object({
+  title: zod.string().min(3).max(100).optional(),
+  link: zod.string().url().optional(),
+  tags: zod.array(zod.string().min(1).max(20)).optional(),
+  description: zod.string().max(500).optional(),
 });
 
 // @ts-ignore
