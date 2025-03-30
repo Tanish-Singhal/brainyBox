@@ -26,9 +26,9 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(helmet());
 
-app.use("/api", limiter);
+app.use("/brainy", limiter);
 
-app.use("/api/v1", indexRouter);
+app.use("/brainy/v1", indexRouter);
 
 connectDB();
 
