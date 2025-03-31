@@ -1,20 +1,5 @@
 import { ReactElement } from "react";
 
-// const defaultStyles =
-//   "rounded-md font-semibold transition duration-300 ease-out inline-flex justify-center items-center";
-
-// export const Button = (props: ButtonProps) => {
-//   return (
-//     <button
-//       className={`${defaultStyles} ${variantStyles[props.variant]} ${sizeStyles[props.size]}`}
-//     >
-//       {props.startIcon ? <span className="mr-2">{props.startIcon}</span> : null}
-//       {props.text}
-//       {props.endIcon ? <span className="ml-2">{props.endIcon}</span> : null}
-//     </button>
-//   );
-// };
-
 interface ButtonProps {
   text?: String;
   variant: "primary" | "secondary" | "delete" | "edit";
@@ -24,10 +9,10 @@ interface ButtonProps {
 }
 
 const variantStyles = {
-  primary: "bg-primary text-black cursor-pointer",
-  secondary: "bg-neutral-50 text-black cursor-pointer",
-  delete: "bg-error text-black cursor-pointer",
-  edit: "bg-card text-white cursor-pointer",
+  primary: "bg-primary text-black hover:bg-primary/80 cursor-pointer",
+  secondary: "bg-neutral-50 text-black hover:bg-neutral-50/80 cursor-pointer",
+  delete: "bg-error text-black hover:bg-error/80 cursor-pointer",
+  edit: "bg-card text-white hover:bg-edit/80 cursor-pointer",
 };
 
 const sizeStyles = {
