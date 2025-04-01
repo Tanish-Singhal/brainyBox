@@ -1,4 +1,4 @@
-import { DocIcon } from "../../assets/icons/DocIcon";
+import { ReactElement } from "react";
 import { ShareIcon } from "../../assets/icons/ShareIcon";
 import { TrashIcon } from "../../assets/icons/TrashIcon";
 
@@ -6,14 +6,15 @@ interface CardProps {
   title: string;
   link: string;
   type: "youtube" | "twitter";
+  icon: ReactElement;
 }
 
-export const Card = ({ title, link, type }: CardProps) => {
+export const Card = ({ title, link, type, icon }: CardProps) => {
   return (
-    <div className="w-80 max-w-80 bg-card rounded-md shadow-gray-800 p-3 shadow-md">
+    <div className="w-80 max-w-80 bg-card rounded-md shadow-gray-800 p-3 shadow-md border border-backgroundHighlight">
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-2">
-          <DocIcon size="lg" color="white" hoverEffect={false} />
+          {icon}
           <h2 className="text-neutral-100 font-semibold text-xl">{title}</h2>
         </div>
 

@@ -5,12 +5,14 @@ import { PlusIcon } from "./assets/icons/PlusIcon";
 import { ShareIcon } from "./assets/icons/ShareIcon";
 import { useState } from "react";
 import { AddContentModal } from "./components/ui/AddContentModal";
+import { TwitterIcon } from "./assets/icons/TwitterIcon";
+import { YoutubeIcon } from "./assets/icons/YoutubeIcon";
 
 function App() {
   const [addContentModalOpen, setAddContentModalOpen] = useState(false);
 
   return (
-    <div className="bg-background h-screen py-1 pr-6">
+    <div className="bg-background min-h-screen px-6 ml-60">
       <div className="flex justify-end items-center gap-4 py-6">
         <Button
           variant="primary"
@@ -29,17 +31,19 @@ function App() {
         />
       </div>
 
-      <div className="flex justify-start items-start gap-4 mx-4">
+      <div className="flex justify-start items-start gap-4 flex-wrap">
         <Card
           type="twitter"
           link="https://twitter.com/elonmusk/status/1812256998588662068?ref_src=twsrc%5Etfw"
           title="Donald Trump"
+          icon={<TwitterIcon size="md" />}
         />
 
         <Card
           type="youtube"
           link="https://www.youtube.com/watch?v=HyzlYwjoXOQ"
           title="Random"
+          icon={<YoutubeIcon size="md" />}
         />
       </div>
 

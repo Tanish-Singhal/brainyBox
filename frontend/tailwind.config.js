@@ -14,7 +14,7 @@ export default {
         background: "#232530",
         success: "#51fa7b",
         card: "#30323e",
-        backgroundHighlight: "#4a4e61",
+        backgroundHighlight: "#515669",
         tag: "#f1fa8c",
       },
     },

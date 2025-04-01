@@ -1,7 +1,6 @@
 import {
   defaultStyles,
   iconColorVariants,
-  iconHoverEffect,
   IconProps,
   iconSizeVariants,
 } from ".";
@@ -9,7 +8,6 @@ import {
 export const TrashIcon = (props: IconProps) => {
   const color = props.color || "white";
   const size = props.size || "md";
-  const hoverEffect = props.hoverEffect || false;
 
   return (
     <svg
@@ -18,11 +16,7 @@ export const TrashIcon = (props: IconProps) => {
       viewBox="0 0 24 24"
       strokeWidth={1.7}
       stroke="currentColor"
-      className={`${iconSizeVariants[size]} ${
-        iconColorVariants[color]
-      } ${defaultStyles} ${
-        iconHoverEffect[String(hoverEffect) as "true" | "false"]
-      }`}
+      className={`${iconSizeVariants[size]} ${iconColorVariants[color]} ${defaultStyles} hover:bg-error cursor-pointer`}
     >
       <path
         strokeLinecap="round"
